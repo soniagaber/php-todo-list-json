@@ -1,11 +1,18 @@
 <?php
-$lista= ['alzarsi',
+$lista= [
+    'alzarsi',
 'fare colazione',
 'fare la doccia',
 'lavorare',
-'pranzare'];
+'pranzare'
+];
 
-header('Content-type: application/json');
+if(isset($_POST['newTodo'])){
+    $lista[] = $_POST['newTodo'];
+    echo json_encode($lista);
+} else{
+    header('Content-type: application/json');
 
-echo json_encode($lista);
+    echo json_encode($lista);
+}
 ?>
